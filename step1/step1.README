@@ -1,0 +1,63 @@
+# Genomic assembly Pipeline step 1 README
+
+## Summary
+This script automates a genomic analysis pipeline for data preprocessing, quality assessment, trimming, and k-mer analysis. It processes multiple samples, generating reports and outputs for downstream analysis.
+
+## Script Details
+
+### Configuration File
+The script requires a configuration file (`step1.config`) to define sample information and paths to software tools. Each sample is defined by `sample_name`, paths to forward and reverse read files, and the output directory path. Paths to software tools like FastQC, Trimmomatic, Jellyfish, and GenomeScope are specified.
+
+### Script Execution
+1. The script reads the configuration file and creates the output directory if it doesn't exist.
+2. It iterates through each sample:
+    - Extracts sample-specific information.
+    - Creates a sample-specific output directory.
+    - Executes analysis steps and generates reports.
+    - Runs k-mer counting using Jellyfish and GenomeScope.
+
+### Analysis Steps
+1. Run FastQC on raw reads (`fastqc` command).
+2. Perform trimming and quality control using Trimmomatic.
+3. Run FastQC on trimmed reads (`fastqc` command).
+4. Run k-mer counting with Jellyfish and analyze using GenomeScope.
+
+### Configuration File Example
+
+```plaintext
+sample_name: sample1
+path_to_sample_1_forward_read: /path/to/sample1_R1.fastq
+path_to_sample_1_reverse_read: /path/to/sample1_R2.fastq
+path_to_create_output_files: /path/to/sample1_output
+
+sample_name: sample2
+path_to_sample_2_forward_read: /path/to/sample2_R1.fastq
+path_to_sample_2_reverse_read: /path/to/sample2_R2.fastq
+path_to_create_output_files: /path/to/sample2_output
+
+# Add more sample entries as needed
+
+Path to Software Tools
+
+plaintext
+
+fastqc=/softwares/FastQC0.11/fastqc
+trimmomatic=/softwares/Trimmomatic-0.39/trimmomatic-0.39.jar
+jellyfish=/path/to/jellyfish
+genomescope=/home/dagashe/shivanshss/tools/genomescope2.0/genomescope.R
+
+Execution
+
+    Make the script (step1.sh) executable:
+
+    bash
+
+chmod +x step1.sh
+
+Run the script with the configuration file as an argument:
+
+bash
+
+    ./step1.sh step1.config
+
+Note: Ensure that the paths to software tools and sample files are correctly specified in the configuration file. Verify the availability of all required tools before running the script.
