@@ -1,0 +1,101 @@
+# Genomic assembly Pipeline step 4 (annotation)
+
+## Summary
+This script automates a pipeline for genomic annotation using tools like RepeatModeller, Blastx, RepeatMasker, SOAPdenovo-Trans, AUGUSTUS, Exonerate, SNAP, GlimmerHMM, and Twinscan. It processes multiple samples, performing repeat identification, protein homology search, annotation, and prediction.
+
+## Configuration File
+
+### Path to Required Software
+Specify the paths to required software tools:
+
+```plaintext
+repeatmodeller=/path/to/repeatmodeller
+blastx=/path/to/blastx
+repeatmasker=/path/to/repeatmasker
+soapdenovo_trans=/path/to/soapdenovo-trans
+augustus=/path/to/augustus
+exonerate=/path/to/exonerate
+snap=/path/to/snap
+glimmerhmm=/path/to/glimmerhmm
+twinscan=/path/to/twinscan
+
+Path to Protein Database
+
+Specify the path to the protein database for Arthropoda:
+
+plaintext
+
+path_to_protein_db=/path/to/arthropoda_protein_db.fasta
+
+Path to Arthropoda Database
+
+Specify the path to the Arthropoda database:
+
+plaintext
+
+path_to_arthropoda_db=/path/to/arthropoda_db.fasta
+
+Path to Samples
+
+Specify paths to sample data:
+
+plaintext
+
+sample1name=/path/to/sample1name
+read1=/path/to/sample1_read1.fastq
+read2=/path/to/sample1_read2.fastq
+
+sample2name=/path/to/sample2name
+read1=/path/to/sample2_read1.fastq
+read2=/path/to/sample2_read2.fastq
+
+# ...
+
+Path to Reference Genome File
+
+Specify the path to the reference genome file:
+
+plaintext
+
+reference_genome_file=/path/to/reference_genome.fasta
+
+Output Directory
+
+Specify the output directory path:
+
+plaintext
+
+path_to_create_output_files=/path/to/output_directory
+
+Kmer Value for SOAPdenovo-Trans
+
+Specify the kmer value for SOAPdenovo-Trans:
+
+plaintext
+
+kmer_value=141  # Change this as per requirement
+
+Script Execution
+
+    Make the script (step4.sh) executable:
+
+    bash
+
+chmod +x step4.sh
+
+Run the script with the configuration file as an argument:
+
+bash
+
+    ./step4.sh step4.config
+
+Script Details
+
+    The script reads the provided configuration file and ensures it is correctly specified.
+    It creates an output directory if it doesn't exist.
+    The script loops through each sample defined in the configuration.
+        It extracts sample-specific information and output directories.
+        It performs analysis steps including repeat identification, protein homology search, genome annotation, and prediction.
+    Analysis progress and completion are displayed.
+
+Note: Ensure accurate paths to software tools, sample files, reference genome, and databases in the configuration file before running the script.
