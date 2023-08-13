@@ -1,0 +1,78 @@
+# Genomic Assembly Pipeline step 3 RAEDME
+
+## Summary
+This script automates a pipeline for genomic assembly improvement using tools like Purge Haplotigs, QUAST, GAEP, BUSCO, and Pilon. It processes multiple samples, performing assembly polishing, assessment, and quality checks.
+
+## Configuration File
+
+### Path to Required Software
+Specify the paths to required software tools:
+
+```plaintext
+purge_/home/dagashe/shivanshss/tools/purge_haplotigs/bin/purge_haplotigs
+quast=/home/dagashe/shivanshss/tools/quast/quast.py
+gaep=/home/dagashe/shivanshss/tools/GAEP
+busco=/home/dagashe/shivanshss/tools/busco/bin/busco
+busco_config=/home/dagashe/shivanshss/tools/busco/config/config_update.ini
+python=/softwares/python383/bin/python
+pilon=/home/dagashe/shivanshss/tools/pilon/pilon-1.24.jar
+
+Path to BUSCO Database
+
+Specify the path to the BUSCO database for assessment:
+
+plaintext
+
+path_to_busco_db=/path/to/busco_database
+
+Path to Samples
+
+Specify paths to sample data:
+
+plaintext
+
+sample1=/path/to/sample1.fastq
+sample2=/path/to/sample2.fastq
+sample3=/path/to/sample3.fastq
+
+Output Directory
+
+Specify the output directory path:
+
+plaintext
+
+path_to_create_output_files=/path/to/output_directory
+
+Reference Genome and GFF
+
+Specify paths to the reference genome and its GFF annotation file:
+
+plaintext
+
+reference_genome=
+reference_gff=
+
+Script Execution
+
+    Make the script (step3.sh) executable:
+
+    bash
+
+chmod +x step3.sh
+
+Run the script with the configuration file as an argument:
+
+bash
+
+    ./step3.sh step3.config
+
+Script Details
+
+    The script reads the provided configuration file and ensures it is correctly specified.
+    It creates an output directory if it doesn't exist.
+    The script loops through each sample defined in the configuration.
+        It extracts sample-specific information and output directories.
+        It performs analysis steps including Purge Haplotigs, QUAST, GAEP, BUSCO assessment, and Pilon polishing.
+    Analysis progress and completion are displayed.
+
+Note: Ensure accurate paths to software tools, sample files, reference genome, and reference GFF in the configuration file before running the script
