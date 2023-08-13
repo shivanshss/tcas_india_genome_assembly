@@ -1,0 +1,69 @@
+# Genomic Assembly Pipeline step 2 README
+
+## Summary
+This script automates a pipeline for hybrid genome assembly and comparison using `hybridSPAdes` and `RagTag`. It processes multiple samples by performing hybrid assembly with nanopore and Illumina reads, followed by genome comparison using `RagTag`.
+
+## Configuration File
+
+### Sample Information
+Define sample-specific information for hybrid assembly and comparison:
+
+```plaintext
+sample_name: sample1
+path_to_sample_1_forward_read: /path/to/sample1_R1.fastq
+path_to_sample_1_reverse_read: /path/to/sample1_R2.fastq
+path_to_create_output_files: /path/to/sample1_output
+
+sample_name: sample2
+path_to_sample_2_forward_read: /path/to/sample2_R1.fastq
+path_to_sample_2_reverse_read: /path/to/sample2_R2.fastq
+path_to_create_output_files: /path/to/sample2_output
+
+sample_name: sample3
+path_to_sample_3_forward_read: /path/to/sample3_R1.fastq
+path_to_sample_3_reverse_read: /path/to/sample3_R2.fastq
+path_to_create_output_files: /path/to/sample3_output
+
+path_to_nanopore_reads: /path/to/nanopore_reads.fastq
+
+Path to Required Software
+
+Specify the paths to required software tools:
+
+plaintext
+
+spades=/home/dagashe/shivanshss/tools/SPAdes-3.15.2-Linux/bin/spades.py
+ragtag=/home/dagashe/shivanshss/tools/RagTag/ragtag.py
+
+Path to Reference Genome for RagTag
+
+Specify the path to the reference genome for the RagTag comparison:
+
+plaintext
+
+path_to_reference_genome=/path/to/reference_genome.fasta
+
+Script Execution
+
+    Make the script (step2.sh) executable:
+
+    bash
+
+chmod +x step2.sh
+
+Run the script with the configuration file as an argument:
+
+bash
+
+    ./step2.sh step2.config
+
+Script Details
+
+    The script reads the provided configuration file and ensures it is correctly specified.
+    It creates an output directory if it doesn't exist.
+    The script loops through each sample defined in the configuration.
+        It extracts sample-specific information and output directories.
+        It performs analysis steps including hybrid assembly using hybridSPAdes and genome comparison using RagTag.
+    Analysis progress and completion are displayed.
+
+Note: Please ensure accurate paths to software tools, sample files, and reference genome in the configuration file before running the script.
