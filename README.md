@@ -15,7 +15,7 @@ Step 1: Quality Control and Preprocessing [step 1](https://github.com/shivanshss
 
 Step 2: Assembly and Redundant Contig Removal [step 2](https://github.com/shivanshss/tcas_india_genome_assembly/blob/main/step2/step2.README)
 
-
+    Assemble reads using Spades
     Apply Purge Haplotigs v1.0.0 to eliminate redundant contigs from hybrid assembly.
     Set parameters ('-l 5 -m 30 -h 190') based on coverage histogram output.
     Adjust haploid identification cutoff ('-a 40') to address high heterozygosity.
