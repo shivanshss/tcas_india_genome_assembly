@@ -13,7 +13,7 @@ Step 1: Quality Control and Preprocessing [step 1](https://github.com/shivanshss
     Employ GenomeScope2.0 for k-mer analysis to estimate genome size and evaluate heterozygosity.
     Use k-mer analysis outcomes to identify contigs potentially misassembled due to heterozygosity.
 
-Step 2: Redundant Contig Removal [step 2](https://github.com/shivanshss/tcas_india_genome_assembly/blob/main/step2/step2.README)
+Step 2: Assembly and Redundant Contig Removal [step 2](https://github.com/shivanshss/tcas_india_genome_assembly/blob/main/step2/step2.README)
 
 
     Apply Purge Haplotigs v1.0.0 to eliminate redundant contigs from hybrid assembly.
