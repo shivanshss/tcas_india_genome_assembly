@@ -2,7 +2,10 @@
     
 Repository Overview
 
-This repository encompasses files, scripts, and test data pertinent to the analyses conducted for the first chapter of a PhD thesis.
+This repository encompasses files, scripts, and test data pertinent to the analyses conducted for the first chapter of my PhD thesis.
+
+In this project, I use Illumina short reads and nanopore long reads to assemble a hybrid reference genome for the beetle, _Tribolium castaneum_. 
+Edit the .config file with PATHs to samples and tools and run the script with the config file. The output will be created in new folders (the name of the folder will be the same as the sample name).
 
 Step 1: Quality Control and Preprocessing [step 1](https://github.com/shivanshss/tcas_india_genome_assembly/blob/main/step1/step1.README)
 
