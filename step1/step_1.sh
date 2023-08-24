@@ -43,11 +43,11 @@ while IFS= read -r line; do
 
 
     # Step 3: Run FastQC on trimmed reads
-    fastqc "$sample_output_dir/trimmed_reads_1P.fastq" "$sample_output_dir/reverse-paired.fq" -o "$sample_output_dir/fastqc_trimmed"
+    fastqc "$sample_output_dir/forward-paired.fq" "$sample_output_dir/reverse-paired.fq" -o "$sample_output_dir/fastqc_trimmed"
 
     # Step 4: Run jellyfish/kmc and GenomeScope 
-    jellyfish count -C "$sample_output_dir/trimmed_reads.fastq" -o "$sample_output_dir/kmer_count.jf" -m 33 -t 4
-    genomescope.R "$sample_output_dir/kmer_count.jf" "$sample_output_dir/genomescope_results" -k 33
+    jellyfish count -C "$sample_output_dir/trimmed_reads.fastq" -o "$sample_output_dir/kmer_count.jf" -m 33 -t 64
+    Rscript genomescope.R "$sample_output_dir/kmer_count.jf" "$sample_output_dir/genomescope_results" -k 33
 
     echo "Done processing $sample_name."
 done < "$config_file"
