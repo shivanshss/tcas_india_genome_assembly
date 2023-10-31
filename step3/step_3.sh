@@ -33,8 +33,10 @@ while IFS= read -r line; do
     # Perform analysis steps
     echo "Processing $sample_name..."
 
+    cd $sample_output_dir
+    
     # Step 1: Run Purge Haplotigs (Replace with actual command)
-    purge_haplotigs hist -b /home/dagashe/shivanshss/aligned_genomes/genome_assembly_correction/da01b_sorted.bam -g /home/dagashe/shivanshss/medusa/medusa_input/draft_genomes/da01b_scaffolds.fasta -t 64
+    purge_haplotigs hist -b $sample1_bam -g $sample1 -t 64
     
     purge_haplotigs cov -i "$sample_output_dir/.gencov" -l 10 -m 50 -h 150 -o da01a_coverage_stats.csv -j 80 -s 80
     

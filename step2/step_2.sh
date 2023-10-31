@@ -38,8 +38,8 @@ while IFS= read -r line; do
     # Step 1: Run hybridSPAdes 
     python3 spades.py -o "$sample_output_dir/hybridSPAdes_output" -1 "$forward_read" -2 "$reverse_read" -l "$path_to_nanopore_reads"
 
-    # Step 2: Run RagTag (Replace with actual command)
-    python3 ragtag.py scaffold "$sample_output_dir/hybridSPAdes_output/contigs.fasta" "$path_to_reference_genome" -o "$sample_output_dir/ragtag_output"
+    # Step 2: Run RagTag 
+    python3 ragtag.py scaffold "$sample_output_dir/hybridSPAdes_output/contigs.fasta" "$path_to_reference_genome" -o "$sample_output_dir/ragtag_output" -C -u --aligner $minimap2
 
     echo "Done processing $sample_name."
 done < "$config_file"
