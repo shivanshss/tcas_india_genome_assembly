@@ -35,7 +35,7 @@ while IFS= read -r line; do
 
     cd $sample_output_dir
     
-    # Step 1: Run Purge Haplotigs (Replace with actual command)
+    # Step 1: Run Purge Haplotigs 
     purge_haplotigs hist -b $sample1_bam -g $sample1 -t 64
     
     purge_haplotigs cov -i "$sample_output_dir/.gencov" -l 10 -m 50 -h 150 -o da01a_coverage_stats.csv -j 80 -s 80
@@ -54,7 +54,7 @@ while IFS= read -r line; do
     # Step 5: Perform Pilon error polishing
     java -Xmx64G -jar pilon --genome "$sample_output_dir/purged_assembly.fasta" --frags "$sample1" --outdir "$sample_output_dir/pilon_round1" --vcf --tracks --diploid --K 15
 
-    # Step 6: Run Purge Haplotigs again (Replace with actual command)
+    # Step 6: Run Purge Haplotigs again 
     purge_haplotigs -l 10 -m 50 -h 150 -a 80 -o "$sample_output_dir/final_purged_assembly.fasta"
 
     echo "Done processing $sample_name."
